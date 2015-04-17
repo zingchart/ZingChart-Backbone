@@ -34,7 +34,7 @@ module.exports = function (grunt) {
         default:{
           files: {
               'lib/backbone.zingchart.js': ['src/ZingChartModel.js', 'src/ZingChartView.js'],
-              'lib/backbone.zingchart.extras.js': ['src/ZingChartModel.js', 'src/ZingChartView.js', 'src/ZingChartViewExtra.js']
+              'lib/backbone.zingchart.extended.js': ['src/ZingChartModel.js', 'src/ZingChartView.js', 'src/ZingChartViewExtended.js']
           }
         }
     },
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
       default: {
         files: {
           'lib/backbone.zingchart.min.js': ['lib/backbone.zingchart.js'],
-          'lib/backbone.zingchart.extras.min.js': ['lib/backbone.zingchart.extras.js']
+          'lib/backbone.zingchart.extended.min.js': ['lib/backbone.zingchart.extended.js']
         }
       }
     }

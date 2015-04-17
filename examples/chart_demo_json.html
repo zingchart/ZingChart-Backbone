@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ZingChart Backbone Plugin - Example using JSON</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+<script src="//cdn.zingchart.com/zingchart.min.js"></script>
+<script src="../lib/backbone.zingchart.min.js"></script>
+<script type="text/template" id="chart-template">
+    <div id="chartDiv"></div>
+</script>
+
+<body>
+
+<div id="demo"></div>    
+
+<script>
+  var DemoView = Backbone.View.extend({
+        el: '#demo',
+        template: _.template($('#chart-template').html()),
+      
+        initialize: function() {
+          this.$el.empty();
+          var json = {    
+            "type":"pie",
+            "series":[
+                {
+                    "text":"Apples",
+                    "values":[5]
+                },
+                {
+                    "text":"Oranges",
+                    "values":[8]
+                },
+                {
+                    "text":"Bananas",
+                    "values":[22]
+                }
+            ]
+        };
+        
+        
+          this.zc = new ZingChart.ZingChartModel({json: json});
+          this.render();
+        },
+        
+        render: function() {
+          this.$el.html(this.template());
+          
+          this.zcView = new ZingChart.ZingChartView({model: this.zc, el: $('#chartDiv')});
+          this.zcView.render();
+          return this;
+        }
+    
+        
+    
+  });
+  
+  var demo = new DemoView();
+  demo.render();
+</script>
+</body>
+</html>
