@@ -1,0 +1,25 @@
+{
+  "name": "backbone-zingchart",
+  "version": "1.0.1",
+  "homepage": "http://www.zingchart.com",
+  "description": "A ZingChart Backbone Plugin",
+  "authors": [
+    "ZingChart"
+  ],
+  "keywords": [
+    "zingchart",
+    "backbone"
+  ],
+  "main": [
+    "lib/backbone-zingchart.js"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test"
+  ],
+  "dependencies": {
+    "zingchart": "latest"
+  }
+}

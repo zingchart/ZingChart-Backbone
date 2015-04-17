@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ZingChart Backbone Plugin - Simple Example</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+<script src="//cdn.zingchart.com/zingchart.min.js"></script>
+<script src="../lib/backbone.zingchart.extras.min.js"></script>
+<script type="text/template" id="chart-template">
+    <div>
+      <button class="add-plot">Add Plot</button>
+      <button class="reset-json">Change JSON</button>
+      <button class="reset-data">Change Data</button>
+      <button class="toggle-legend">Toggle Legend</button>
+      <div id="chartDiv"></div>
+    </div>
+</script>
+
+<body>
+
+<div id="demo"></div>    
+
+<script>
+  var DemoView = Backbone.View.extend({
+        el: '#demo',
+        template: _.template($('#chart-template').html()),
+      
+        initialize: function() {
+          this.$el.empty();
+          this.zc = new ZingChart.ZingChartModel({data: [[3,2,3,3,9] , [1,2,3,4,5]],
+                                        width: 500,
+                                        height: 400});
+          
+          this.render();
+        },
+        
+        render: function() {
+          this.$el.html(this.template());
+          this.zcView = new ZingChart.ZingChartView({model: this.zc, el: $('#chartDiv')});
+          this.zcView.render();
+          return this;
+        },
+    
+        events: {
+           'click .reset-json': 'changeJSON',
+           'click .reset-data': 'changeData',
+           'click .add-plot': 'addPlot',
+           'click .toggle-legend': 'addLegend'
+        },
+        
+        random: function(max){
+          return Math.floor((Math.random() * max));
+        },
+        
+        changeJSON: function(){
+          console.log('Changing JSON');
+          var charttype = ["area", "line", "bar"];
+          var max = 100;
+          var plots = 3;
+          var points = 15;
+          var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple', 'pink'];
+          var data = {
+            type: charttype[this.random(charttype.length)]  
+          };
+          
+          var series = [];
+          for (var i=0;i<plots;i++){
+            var color = colors[this.random(colors.length)];
+            var plot = {
+              lineColor: color,
+              backgroundColor: color
+            }
+            var plotdata = [];
+            for (var j=0;j<points;j++){
+              plotdata.push(this.random(max) + 1);
+            }
+            plot.values = plotdata;
+            series.push(plot);
+          }
+          
+          data.series = series;
+          
+          this.zc.set("json", data);
+        },
+        
+        addPlot: function(){
+          var values = [];
+          for (var j=0;j<15;j++){
+            values.push(this.random(100) + 1);
+          }
+          
+          
+          this.zcView.addPlot({
+            data:{
+                values: values
+            }
+          });
+          
+          
+        },
+        
+        addLegend: function(){
+          
+          var graph = this.zcView.getData();
+          if (graph.graphset){
+            graph = graph.graphset[0];
+          }
+          
+          if(!graph.legend){
+            graph.legend = {};
+          }
+          this.zc.set('json', graph);
+          
+          this.zcView.legendItemClick(this.alertClick);
+        },
+        
+        alertClick: function(){
+          alert("CLICKED");
+        },
+        
+        changeData: function(){
+          console.log('Change Data');
+          var max = 100;
+          var plots = 3;
+          var points = 15;
+          
+          var series = [];
+          for (var i=0;i<plots;i++){
+            var plotdata = [];
+            for (var j=0;j<points;j++){
+              plotdata.push(this.random(max) + 1);
+            }
+            series.push(plotdata);
+          }
+          
+          this.zc.set("data", series);
+        }
+ 
+        
+    
+  });
+  
+  var demo = new DemoView();
+  demo.render();
+</script>
+</body>
+</html>

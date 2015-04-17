@@ -1,0 +1,19 @@
+{
+  "name": "backbone-zingchart",
+  "version": "1.0.1",
+  "description": "A ZingChart Backbone Plugin",
+  "main": "lib/backbone-zingchart.js",
+  "author": "ZingChart",
+  "homepage": "www.zingchart.com",
+  "keywords": [
+    "ZingChart",
+    "backbone"
+  ],
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-uglify": "^0.9.1"
+  },
+  "license": "MIT"
+}
