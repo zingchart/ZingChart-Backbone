@@ -11,7 +11,7 @@ Backbone.ZingChart is a lighweight Backbone extension that allows for fast and s
 ## Installation
 
 **Use our CDN**:
-The easiest way to get started with backbone.zingchart is to use our [new, fandangled CDN](http://cdn.zingchart.com/). Just paste these scripts in your HTML file **after** your backbone.js file.
+The easiest way to get started with backbone.zingchart is to use our [snazzy CDN](http://cdn.zingchart.com/). Just paste these scripts in your HTML file **after** your backbone.js file.
 
 ```
 <script src="cdn.zingchart.com/zingchart.min.js"></script>
@@ -32,7 +32,7 @@ Alternatively, you could simply clone this repo.
 
 View the files in the [example directory](examples) for working samples.
 
-You must have the ZingChart library loaded. We suggest you use our [snazzy CDN](http://cdn.zingchart.com/) to keep up to date with the latest build.
+You must have the ZingChart library loaded. We suggest you use our [CDN](http://cdn.zingchart.com/) to keep up to date with the latest build.
 
 In addition, you must include this library.  We support inclusion through [require.js](http://requirejs.org/) and you can view an example in the examples directory.  For now, we will do a simple script include.
 
