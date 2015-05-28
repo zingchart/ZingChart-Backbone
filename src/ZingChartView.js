@@ -11,7 +11,8 @@
           id:this.el.id,
           height:this.model.get('height'),
           width:this.model.get('width'),
-          data:data
+          data:data,
+          defaults:this.model.get('defaults')
         });
         
         return this;

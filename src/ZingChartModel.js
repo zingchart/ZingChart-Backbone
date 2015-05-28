@@ -7,6 +7,7 @@
             json: {},
             data: [],
             charttype: 'line',
+            defaults: {},
             events: null
         }
     
