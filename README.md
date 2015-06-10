@@ -15,7 +15,7 @@ The easiest way to get started with backbone.zingchart is to use our [snazzy CDN
 
 ```
 <script src="cdn.zingchart.com/zingchart.min.js"></script>
-<script src="cdn.zingchart.com/backbone.zingchart.min.js"></script>
+<script src="cdn.zingchart.com/backbone/backbone.zingchart.min.js"></script>
 ```
 
 The first script loads the ZingChart file and the second one loads the actual backbone.zingchart wrapper. Both are necessary for this wrapper to work.
