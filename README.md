@@ -52,7 +52,7 @@ var chartData = new ZingChart.ZingChartModel(
 // Render the Chart
 // Note that the el must already be added to the DOM
 var chartView = new ZingChart.ZingChartView({model: chartData, el: $('#chartDiv')});
-zingChartView.render();
+chartView.render();
 ```
 Passing in a full JSON structure:
 
@@ -84,7 +84,7 @@ var chartData = new ZingChart.ZingChartModel(
 // Render the Chart
 // Note that the el must already be added to the DOM
 var chartView = new ZingChart.ZingChartView({model: chartData, el: $('#chartDiv')});
-zingChartView.render();
+chartView.render();
 
 
 ```
